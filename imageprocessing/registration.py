@@ -7,6 +7,24 @@ import cv2
 import os
 
 class Registration():
+    """
+    A class to handle image registration using keypoint extraction and homography transformation. 
+
+    This class uses the SuperPoint keypoint extractor and LightGlue matcher to perform feature-based image registration.
+    The registered images are saved in the 'registrations' directory.
+
+    Attributes:
+        extractor (nn.Module): SuperPoint keypoint extractor.
+        matcher (nn.Module): LightGlue feature matcher.
+        image0 (Tensor): The control image as a tensor.
+        control_cv (ndarray): The control image loaded using OpenCV for transformation calculations.
+        control_feats (dict): Extracted features from the control image.
+        mask (ndarray): A binary mask used to filter keypoints in the control image.
+
+    Example:
+        reg = Registration('raw/image.jpg', mask_array)
+        reg.generate_registrations()  # Registers all images and saves the results.
+    """
     def __init__(self,control_filename, mask):
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.extractor = SuperPoint(max_num_keypoints=2048).eval().to(self.device)
@@ -18,11 +36,32 @@ class Registration():
         self.mask = mask
     
     def point_in_mask(mask, coordinate):
+        """
+        Determines if a given point (coordinate) falls within the masked region (non-zero) of an image.
+
+        Args:
+            mask (ndarray): A binary mask array.
+            coordinate (tuple): A tuple (x, y) specifying the point to check within the mask.
+
+        Returns:
+            bool: True if the point is within a masked region, False otherwise.
+        """
         x, y = coordinate
         x, y = int(round(x)), int(round(y))
         return mask[y, x] != 0
 
     def image_registration(self, image_path, feats0, index):
+        """
+        Registers an image to the control image using extracted features and homography, then saves the output.
+
+        Args:
+            image_path (str): Path to the target image for registration.
+            feats0 (dict): Pre-extracted features from the control image.
+            index (int): An index number for naming the saved registered image.
+
+        Returns:
+            ndarray: The registered image as an ndarray.
+        """
         image1 = load_image(image_path)
         image_cv = cv2.imread(image_path)
         feats1 = self.extractor.extract(image1.to(self.device))
@@ -57,10 +96,13 @@ class Registration():
         return img_new_registered
 
     def generate_registrations(self):
-        folder_path = 'registrations'
+        """
+        Generates registrations for all JPG files in the 'raw' directory.
+        """
+        folder_path = 'Registered'
         os.makedirs(folder_path, exist_ok=True)
 
-        folder_path = 'downloaded_images'
+        folder_path = 'raw'
         file_list = os.listdir(folder_path)
 
         i = 0
