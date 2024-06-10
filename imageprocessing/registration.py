@@ -90,7 +90,7 @@ class Registration():
         img_new_registered = cv2.warpPerspective(image_cv, H, (w_control, h_control))
         
         # Save registered images
-        cv2.imwrite(f"registrations/registration{index}.jpeg", img_new_registered)
+        cv2.imwrite(f"Registered/registration{index}.jpeg", img_new_registered)
         
         return img_new_registered
 
