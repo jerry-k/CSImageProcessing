@@ -1,7 +1,6 @@
 import numpy as np
-from LightGlue.lightglue import LightGlue, SuperPoint, DISK
-from LightGlue.lightglue.utils import load_image, rbd
-from LightGlue.lightglue import viz2d
+from lightglue import LightGlue, SuperPoint, DISK, viz2d
+from lightglue.utils import load_image, rbd
 import torch
 import cv2
 import os
