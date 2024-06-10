@@ -201,12 +201,12 @@ def generate_mask(image_path):
 
     # Save polygons to a file
     if polygons:
-        polygon_array = np.array(polygons, dtype=object)
+        polygon_array = np.array(polygons, dtype=np.int32)
         np.save('polygon_coordinates.npy', polygon_array)
         print(f'{len(polygons)} polygon coordinates saved to "polygon_coordinates.npy"')
-        mask = np.zeros_like(image[:, :, 0], dtype=np.uint8)
+        mask = np.zeros_like(image[:,:,0], dtype=np.uint8)
         for polygon in polygon_array:
-            cv2.fillPoly(mask, [polygon.astype(np.int32)], 255)
+            cv2.fillPoly(mask, [polygon], 1)
         return mask
     else:
         print("No polygons were drawn.")
