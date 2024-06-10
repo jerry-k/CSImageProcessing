@@ -34,7 +34,7 @@ class Registration():
         self.control_feats = self.extractor.extract(self.image0.to(self.device))
         self.mask = mask
     
-    def point_in_mask(mask, coordinate):
+    def point_in_mask(self, mask, coordinate):
         """
         Determines if a given point (coordinate) falls within the masked region (non-zero) of an image.
 
