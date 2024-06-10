@@ -111,7 +111,7 @@ def select_control_image(directory):
     def load_image(index):
         img_path = os.path.join(directory, images[index])
         img = Image.open(img_path)
-        img.thumbnail((400, 400))
+        img.thumbnail((800, 800))
         photo = ImageTk.PhotoImage(img)
         return photo
 
@@ -175,7 +175,7 @@ def generate_mask(image_path):
 
     # Function to create a window, draw a polygon and return its vertices
     def create_window_and_draw_polygon():
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(15, 12))
         ax.imshow(image)
         selector = PolygonSelector(ax, on_polygon_complete)
         plt.show()
@@ -201,12 +201,12 @@ def generate_mask(image_path):
 
     # Save polygons to a file
     if polygons:
-        polygon_array = np.array(polygons, dtype=np.int32)
+        polygon_array = np.array(polygons, dtype=object)
         np.save('polygon_coordinates.npy', polygon_array)
         print(f'{len(polygons)} polygon coordinates saved to "polygon_coordinates.npy"')
         mask = np.zeros_like(image[:,:,0], dtype=np.uint8)
         for polygon in polygon_array:
-            cv2.fillPoly(mask, [polygon], 1)
+            cv2.fillPoly(mask, [polygon.astype(np.int32)], 1)
         return mask
     else:
         print("No polygons were drawn.")
