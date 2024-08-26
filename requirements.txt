@@ -4,7 +4,7 @@ contourpy==1.2.1
 cycler==0.12.1
 filelock==3.14.0
 fonttools==4.53.0
-fsspec==2024.6.0
+fsspec==2024.6.1
 idna==3.7
 imageio==2.34.1
 intel-openmp==2021.4.0
@@ -21,7 +21,7 @@ networkx==3.3
 numpy==1.26.4
 opencv-python==4.10.0.82
 packaging==24.0
-pandas==2.2.2
+pandas==2.1.4
 pillow==10.3.0
 pyparsing==3.1.2
 python-dateutil==2.9.0.post0
