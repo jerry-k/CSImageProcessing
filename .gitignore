@@ -6,7 +6,7 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-# dist/  # Commented out to include built frontend
+# dist/
 downloads/
 eggs/
 .eggs/
