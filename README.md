@@ -30,7 +30,7 @@ CoastSnap is a web-based citizen science coastal monitoring system that processe
 
 3. **Install Python dependencies**
    ```bash
-   # From the coastsnap-web/backend directory
+   cd coastsnap-web/backend
    pip install -r requirements.txt
    ```
 
@@ -41,8 +41,8 @@ That's it! The frontend is pre-built and included - no Node.js or npm required.
 ### Starting the Application
 
 ```bash
-cd coastsnap-web/backend
-python app.py
+   # From the coastsnap-web/backend directory
+   python app.py
 ```
 
 The application will be available at `http://localhost:8000`
