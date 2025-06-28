@@ -755,4 +755,6 @@ def upload_transects():
 
 if __name__ == "__main__":
     logger.info("Starting Flask server on http://0.0.0.0:8000")
+    print("\n  ➜  CoastSnap is running at: http://localhost:8000")
+    print("  ➜  Press CTRL+C to stop the server\n")
     app.run(host="0.0.0.0", port=8000, debug=False)
