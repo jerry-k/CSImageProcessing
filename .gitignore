@@ -50,7 +50,7 @@ logs/
 ehthumbs.db
 Thumbs.db
 
-# Node.js (for frontend)
+# Node.js
 node_modules/
 npm-debug.log*
 yarn-debug.log*
