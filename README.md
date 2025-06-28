@@ -25,12 +25,12 @@ CoastSnap is a web-based citizen science coastal monitoring system that processe
    venv\Scripts\activate
    
    # On macOS/Linux
-   source venv/bin/activate
+   # source venv/bin/activate
    ```
 
 3. **Install Python dependencies**
    ```bash
-   cd coastsnap-web/backend
+   # From the coastsnap-web/backend directory
    pip install -r requirements.txt
    ```
 
