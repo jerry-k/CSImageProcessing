@@ -1,0 +1,18 @@
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.konva-container {
+  display: inline-block; /* Aligns the border correctly */
+  border: 1px solid #ccc;
+  background-color: #f0f0f0; /* Light grey background to contrast with white images */
+}
+
+.konva-container canvas {
+  cursor: grab;
+}
+
+.konva-container canvas:active {
+  cursor: grabbing;
+}
