@@ -45,7 +45,7 @@ cd coastsnap-web/backend
 python app.py
 ```
 
-The application will be available at `http://localhost:5000`
+The application will be available at `http://localhost:8000`
 
 ### Setting Up a New Site
 

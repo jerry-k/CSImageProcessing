@@ -4,7 +4,7 @@
 
 // Use direct URL for development since proxy might not be working
 // In production, this should be the actual backend URL
-export const API_BASE_URL = 'http://localhost:5000';
+export const API_BASE_URL = 'http://localhost:8000';
 
 export const CANVAS_DIMENSIONS = {
   WIDTH: 800,

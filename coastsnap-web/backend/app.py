@@ -754,5 +754,5 @@ def upload_transects():
 
 
 if __name__ == "__main__":
-    logger.info("Starting Flask server on http://0.0.0.0:5000")
-    app.run(host="0.0.0.0", port=5000, debug=False)
+    logger.info("Starting Flask server on http://0.0.0.0:8000")
+    app.run(host="0.0.0.0", port=8000, debug=False)
