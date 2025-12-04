@@ -3,11 +3,11 @@
 CoastSnap is a web-based citizen science coastal monitoring system that processes crowd-sourced photographs to track shoreline changes over time. It transforms smartphone coastal photographs taken from fixed camera cradles into georectified plan-view images, enabling automated shoreline extraction.
 
 ## Table of Contents
-- [Installation](#installation)
-- [Usage](#usage)
-- [Features](#features)
-- [System Architecture](#system-architecture)
-- [Processing Pipeline](#processing-pipeline)
+[Installation](#installation)
+[Usage](#usage)
+[Features](#features)
+[System Architecture](#system-architecture)
+[Processing Pipeline](#processing-pipeline)
 
 ## Installation
 
